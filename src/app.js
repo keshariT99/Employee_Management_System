@@ -3,6 +3,7 @@ import cors from "cors";
 //configer
 import 'dotenv/config';
 import logger from "./utils/logger";
+import {connect} from "./utils/database_connection";
 
 //call
 const app = express();
@@ -19,4 +20,5 @@ app.get("/", (req, res, next) => {
 
 app.listen(PORT, () => {
     logger.info(` Server is up and running on PORT ${PORT}`)
-});
+    connect(); //call
+}); 
